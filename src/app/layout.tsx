@@ -7,6 +7,9 @@ export const metadata : Metadata = {
 }
 
 export default function RootLayout({ children } : {children : React.ReactNode}) {
+  const x = 1
+  console.log(x)
+
   return (
     <html lang="ko">
       <Script
