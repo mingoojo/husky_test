@@ -14,6 +14,7 @@ export default function RootLayout({ children } : {children : React.ReactNode}) 
         strategy="afterInteractive"
       />
       <body>
+        123123
         {children}
       </body>
     </html>
