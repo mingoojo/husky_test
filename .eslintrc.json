@@ -1,39 +1,128 @@
 {
-  "extends": "next/core-web-vitals",
+  "extends": [
+    "next/core-web-vitals",
+    "plugin:@typescript-eslint/recommended"
+  ],
   "plugins": ["@typescript-eslint"],
   "rules": {
+    // React 17+ JSX 변환으로 import React 불필요
     "react/react-in-jsx-scope": "off",
+
+    // JSX를 .ts, .tsx 파일에서 허용
     "react/jsx-filename-extension": [1, { "extensions": [".ts", ".tsx"] }],
+
+    // 줄바꿈 스타일 무시 (Windows/Mac 혼용 환경)
     "linebreak-style": 0,
+
+    // 들여쓰기 2칸 강제
     "indent": ["error", 2],
+
+    // 줄 끝 공백 금지
     "no-trailing-spaces": "error",
+
+    // if/else 등 중괄호 필수
     "curly": "error",
+
+    // 중괄호 위치 스타일 통일 (같은 줄에 시작)
     "brace-style": "error",
+
+    // 연속 공백 금지 (a  = 1 → a = 1)
     "no-multi-spaces": "error",
+
+    // 연산자 앞뒤 공백 필수 (a+b → a + b)
     "space-infix-ops": "error",
+
+    // 단항 연산자 공백 규칙 (typeof x, !x)
     "space-unary-ops": "error",
+
+    // 속성 접근 전 공백 금지 (obj .name → obj.name)
     "no-whitespace-before-property": "error",
+
+    // 함수 호출 시 괄호 전 공백 금지 (fn () → fn())
     "func-call-spacing": "error",
+
+    // 블록 앞 공백 필수 (if(x){} → if(x) {})
     "space-before-blocks": "error",
+
+    // 키워드 앞뒤 공백 필수 (if, else, return 등)
     "keyword-spacing": ["error", { "before": true, "after": true }],
+
+    // 쉼표 뒤 공백 필수, 앞은 금지 ([1,2] → [1, 2])
     "comma-spacing": ["error", { "before": false, "after": true }],
+
+    // 쉼표 위치 스타일 검사 안 함
     "comma-style": "off",
+
+    // 여러 줄일 때 마지막 쉼표 필수 (trailing comma)
     "comma-dangle": ["error", "always-multiline"],
+
+    // 괄호 안 공백 금지 (( a ) → (a))
     "space-in-parens": ["error", "never"],
+
+    // 블록 내부 공백 필수 ({ a } → { a })
     "block-spacing": "error",
+
+    // 배열 괄호 안 공백 금지 ([ 1 ] → [1])
     "array-bracket-spacing": ["error", "never"],
+
+    // 객체 중괄호 안 공백 필수 ({a} → { a })
     "object-curly-spacing": ["error", "always"],
+
+    // 객체 key:value 사이 공백 통일 ({a :1} → {a: 1})
     "key-spacing": ["error", { "mode": "strict" }],
+
+    // 화살표 함수 앞뒤 공백 필수 ((x)=>{} → (x) => {})
     "arrow-spacing": ["error", { "before": true, "after": true }],
+
+    // React Hook 규칙 위반 시 경고 (조건문 안에서 Hook 사용 등)
     "react-hooks/rules-of-hooks": "warn",
+
+    // 사용하지 않는 변수 경고
     "no-unused-vars": "warn",
+
+    // 큰따옴표 사용 강제
     "quotes": ["warn", "double"],
-    "eqeqeq": "warn",
+
+    // 변수 delete 연산자 사용 금지
     "no-delete-var": "warn",
+
+    // JSX에서 사용된 변수를 미사용으로 잘못 잡는 것 방지
     "react/jsx-uses-vars": "warn",
+
+    // 타입 어노테이션(:) 앞뒤 공백 필수 (x:string → x : string)
     "@typescript-eslint/type-annotation-spacing": ["warn", {
       "before": true,
       "after": true
-    }]
+    }],
+    
+    // 변수 중복 선언 방지
+    "@typescript-eslint/no-redeclare": "error",
+
+    // 사용하지 않는 import 제거
+    "@typescript-eslint/no-unused-expressions": "error",
+
+    // 함수 반환 타입 명시 강제
+    "@typescript-eslint/explicit-function-return-type": "warn",
+
+    // switch문 default 강제
+    "default-case": "error",
+
+    // console.log 방지 (배포 시 실수 방지) test
+    "no-console": "warn",
+
+    // 중복 import 방지
+    "no-duplicate-imports": "error",
+
+    // === 대신 == 사용 방지
+    "eqeqeq": "error",
+
+    // 빈 catch 블록 방지
+    "no-empty": "error",
+
+    // Promise를 await 없이 사용 방지
+    "@typescript-eslint/no-floating-promises": "error",
+
+    // 불필요한 타입 단언 방지 (as 남용)
+    "@typescript-eslint/consistent-type-assertions": "warn"
   }
 }
