@@ -8,6 +8,7 @@ export const metadata : Metadata = {
 
 export default function RootLayout({ children } : {children : React.ReactNode}) {
   const x = 1
+  const x = 1
   console.log(x + 123)
   return (
     <html lang="ko">
@@ -16,7 +17,6 @@ export default function RootLayout({ children } : {children : React.ReactNode}) 
         strategy="afterInteractive"
       />
       <body>
-        12312312312123
         {children}
       </body>
     </html>
